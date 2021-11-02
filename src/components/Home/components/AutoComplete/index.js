@@ -74,7 +74,7 @@ const AutoComplete = ({
           `${initialSearchPlaceHolder}` ||
           "search Here ..."
         }
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e) => !disabled && setSearchTerm(e.target.value)}
         onClick={() => setResults(true)}
         value={searchTerm}
       />
