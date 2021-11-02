@@ -9,24 +9,29 @@ const Home = () => {
     <StHomeContainer>
       <h3>Auto Complete</h3>
       <AutoComplete
-        initialData={LIST_ITEMS}
-        defaultSelected={["btc", "eth"]}
-        initialSearchPlaceHolder={"Crypto Search ..."}
-        title={"Crypto"}
-      />
-      <AutoComplete
         initialData={LIST_ITEMS_2}
-        defaultSelected={["apple", "tomato"]}
         initialSearchPlaceHolder={"Fruits Search..."}
-        title={"Fruits"}
+        title={"Small list"}
       />
       <AutoComplete
         initialData={LIST_ITEMS_3}
         defaultSelected={["iran", "iraq"]}
         initialSearchPlaceHolder={"Countries Search ..."}
-        title={"Countries"}
+        title={"Large List"}
+      />
+      <AutoComplete
+        initialData={LIST_ITEMS}
+        defaultSelected={["btc", "eth"]}
+        initialSearchPlaceHolder={"Crypto Search ..."}
+        title={"Default Selected Values"}
       />
       <AutoComplete title={"Disabled Input"} disabled />
+      <AutoComplete
+        title={"Disabled Input with Default Selected Values"}
+        disabled
+        initialData={LIST_ITEMS_3}
+        defaultSelected={["iran", "iraq"]}
+      />
     </StHomeContainer>
   );
 };

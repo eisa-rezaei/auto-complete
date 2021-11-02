@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const StHomeContainer = styled.section`
   width: 100%;
-  min-height: 500px;
+  min-height: 800px;
   padding: 8vh 10vw;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
   overflow: hidden;
   background-color: #fff;
   transition: all 0.5s;

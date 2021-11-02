@@ -28,13 +28,13 @@ export const StInputsContainer = styled.div`
 
 export const StAllResults = styled.div`
   width: 100%;
-  height: 180px;
+  max-height: 180px;
   top: 60px;
   overflow: auto;
   position: absolute;
   z-index: 2;
-  border-top: 0px;
   border: 2px solid #e0eeee;
+  border-top: 0px;
 `;
 
 export const StInputAddedList = styled.ul`

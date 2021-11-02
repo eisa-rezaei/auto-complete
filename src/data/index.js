@@ -11,9 +11,7 @@ export const LIST_ITEMS_2 = [
   { title: "ORANGE", isSelected: false, keyWords: "پرتغال" },
   { title: "APPLE", isSelected: false, keyWords: "سیب" },
   { title: "POTATO", isSelected: false, keyWords: "سیب زمینی" },
-  { title: "TOMATO", isSelected: false, keyWords: "گوجه" },
   { title: "BANANA", isSelected: false, keyWords: "موز" },
-  { title: "KIWI", isSelected: false, keyWords: "کیوی" },
 ];
 
 export const LIST_ITEMS_3 = [
