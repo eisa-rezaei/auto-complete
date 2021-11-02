@@ -82,11 +82,12 @@ export const StInputsResultItem = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  cursor: pointer;
+  background-color: ${(props) => (props.isSelected ? `#f5fcf8` : `#fff`)};
   & svg {
     color: #00dd00;
   }
   :hover {
     background-color: #f5f8fb;
+    cursor: pointer;
   }
 `;

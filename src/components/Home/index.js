@@ -55,7 +55,6 @@ const Home = () => {
     setSelected(newArr);
     setCoinList(newListArr);
     setSearchTerm("");
-    setResults(false);
   };
 
   return (
@@ -89,6 +88,7 @@ const Home = () => {
                 <StInputsResultItem
                   key={index}
                   onClick={setSelectedHandler(title)}
+                  isSelected={isSelected}
                 >
                   {title}
                   {isSelected ? <AiOutlineCheck /> : null}
