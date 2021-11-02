@@ -13,17 +13,18 @@ const Home = () => {
         initialSearchPlaceHolder={"Fruits Search..."}
         title={"Small list"}
       />
-      <AutoComplete
-        initialData={LIST_ITEMS_3}
-        defaultSelected={["iran", "iraq"]}
-        initialSearchPlaceHolder={"Countries Search ..."}
-        title={"Large List"}
-      />
+
       <AutoComplete
         initialData={LIST_ITEMS}
         defaultSelected={["btc", "eth"]}
         initialSearchPlaceHolder={"Crypto Search ..."}
         title={"Default Selected Values"}
+      />
+      <AutoComplete
+        initialData={LIST_ITEMS}
+        defaultSelected={["btc", "eth"]}
+        initialSearchPlaceHolder={"Crypto Search ..."}
+        title={"keyboards search /En/Fa"}
       />
       <AutoComplete title={"Disabled Input"} disabled />
       <AutoComplete
