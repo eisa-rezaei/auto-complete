@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 export const StLayoutContainer = styled.main`
   min-width: 100vw;
   min-height: 100vh;
-  padding: 10vh 20vw;
+  padding: 5vh 20vw;
   user-select: none;
   display: flex;
   align-items: center;

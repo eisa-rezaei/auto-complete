@@ -1,102 +1,38 @@
-import React, { useState, useRef } from "react";
+import React from "react";
+import { LIST_ITEMS, LIST_ITEMS_2, LIST_ITEMS_3 } from "../../data";
+import AutoComplete from "./components/AutoComplete";
 
-import { MdClose } from "react-icons/md";
-import { AiOutlineCheck } from "react-icons/ai";
-
-import { useOnClickOutside } from "../Hook/useOnClickOutside";
-
-import {
-  StHomeContainer,
-  StInputAddedList,
-  StInputAddedListItem,
-  StInputsContainer,
-  StInputsResult,
-  StInputsResultItem,
-} from "./style";
-
-const LIST_ITEMS = [
-  { title: "BTC", isSelected: false, keyWords: "bitcoin بیت کوین" },
-  { title: "ETH", isSelected: false, keyWords: "etherum اتریوم" },
-  { title: "DOGE", isSelected: false, keyWords: "doge coin دوج کوین" },
-  { title: "BNB", isSelected: false, keyWords: "binance coin بایننس کوین" },
-  { title: "RTX", isSelected: false, keyWords: "tron ترون" },
-  { title: "XRP", isSelected: false, keyWords: "ripple ریپل" },
-];
+import { StHomeContainer } from "./style";
 
 const Home = () => {
-  const [coinList, setCoinList] = useState(LIST_ITEMS);
-  const [results, setResults] = useState(false);
-  const [selected, setSelected] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const ref = useRef();
-  useOnClickOutside(ref, () => setResults(false));
-
-  const setSelectedHandler = (name) => () => {
-    const newArr = coinList.map((item) => {
-      if (item.title === name && !item.isSelected) {
-        item.isSelected = true;
-        setSelected([...selected, item.title]);
-      }
-      return item;
-    });
-    setCoinList(newArr);
-    setSearchTerm("");
-  };
-
-  const removeSelectedHandler = (name) => () => {
-    const newArr = selected.filter((item) => item !== name);
-    const newListArr = coinList.map((item) => {
-      if (item.title === name && item.isSelected) {
-        item.isSelected = false;
-      }
-      return item;
-    });
-    setSelected(newArr);
-    setCoinList(newListArr);
-    setSearchTerm("");
-  };
-
   return (
     <StHomeContainer>
-      <StInputsContainer ref={ref}>
-        <h3>Auto Complete</h3>
-        <input
-          placeholder="Search Here ... (EN/FA)"
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onClick={() => setResults(true)}
-          value={searchTerm}
-          autoFocus
-        />
-        <StInputAddedList>
-          {selected?.map((item, index) => (
-            <StInputAddedListItem key={index}>
-              {item}
-              <MdClose onClick={removeSelectedHandler(item)} />
-            </StInputAddedListItem>
-          ))}
-        </StInputAddedList>
-        {results ? (
-          <StInputsResult>
-            {coinList
-              .filter(
-                ({ title, keyWords }) =>
-                  title.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0 ||
-                  keyWords?.indexOf(searchTerm) >= 0
-              )
-              .map(({ title, isSelected }, index) => (
-                <StInputsResultItem
-                  key={index}
-                  onClick={setSelectedHandler(title)}
-                  isSelected={isSelected}
-                >
-                  {title}
-                  {isSelected ? <AiOutlineCheck /> : null}
-                </StInputsResultItem>
-              ))}
-          </StInputsResult>
-        ) : null}
-      </StInputsContainer>
+      <h3>Auto Complete</h3>
+      <AutoComplete
+        initialData={LIST_ITEMS_2}
+        initialSearchPlaceHolder={"Fruits Search..."}
+        title={"Small list"}
+      />
+
+      <AutoComplete
+        initialData={LIST_ITEMS}
+        defaultSelected={["btc", "eth"]}
+        initialSearchPlaceHolder={"Crypto Search ..."}
+        title={"Default Selected Values"}
+      />
+      <AutoComplete
+        initialData={LIST_ITEMS}
+        defaultSelected={["btc", "eth"]}
+        initialSearchPlaceHolder={"Crypto Search ..."}
+        title={"keyboards search /En/Fa"}
+      />
+      <AutoComplete title={"Disabled Input"} disabled />
+      <AutoComplete
+        title={"Disabled Input with Default Selected Values"}
+        disabled
+        initialData={LIST_ITEMS_3}
+        defaultSelected={["iran", "iraq"]}
+      />
     </StHomeContainer>
   );
 };
